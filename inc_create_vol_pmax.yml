@@ -1,0 +1,24 @@
+---
+ - name: "Set serial numbers, array name and the Unisphere IPs for all your arrays here. Copy paste the following
+   
+   module as many times as the number of arrays in your environment. 'ser' is array serial number, 'uni' is IP of
+   
+   Unisphere"  
+   set_fact:
+     ser: "12345678"
+     uni: "10.10.10.10"
+   when: "item.array == \"ARRAY_NAME\""
+
+
+ - dellemc.powermax.volume:
+     serial_no: "{{ ser }}"
+     unispherehost: "{{ uni }}"
+     universion: "92"
+     verifycert: false
+     user: "{{ username }}"
+     password: "{{ password }}"
+     vol_name: "{{ item.vname }}"
+     sg_name: "{{ item.sg_name }}"
+     size: "{{ item.vsize }}"
+     cap_unit: "GB"
+     state: present
