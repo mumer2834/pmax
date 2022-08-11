@@ -1,6 +1,6 @@
-This repo creates ansible plabybooks to perform the following tasks:
+This repo contains ansible plabybooks to perform the following tasks on Dell PowerMax arrays:
 
--> Create volumes in bulk on Dell EMC PowerMax arrays
+-> Create volumes in bulk
 
 -> Add the created volumes in relevant storage groups
 
