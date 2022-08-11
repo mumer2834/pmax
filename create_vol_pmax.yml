@@ -1,0 +1,18 @@
+---
+ - hosts: localhost
+   connection: local
+   gather_facts: no
+   vars:
+     ansible_python_interpreter: /usr/bin/python3
+   vars_files:
+     - input_file
+     - pswd
+   environment:
+     http_proxy: ''
+     https_proxy: '' 
+     ANSIBLE_COLLECTIONS_PATHS: /path/to/collections
+     # add path to ansible collections above
+   tasks:
+   - name: "Create volumes and add in storage group"
+     include_tasks: inc_create_vol_pmax.yml
+     loop: "{{ vol_info }}"
